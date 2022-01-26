@@ -1,0 +1,23 @@
+#
+# Copyright contributors to the Galasa project 
+#
+- hosts: all
+  become: true
+  roles: 
+  tasks:
+  - name: Copy galasactl module
+    get_url:
+      dest: /usr/local/bin/galasactl
+      url: https://galasadev-cicsk8s.hursley.ibm.com/prod/binary/cli/galasactl-linux-amd64
+      force: yes
+      mode: u=rwx,g=rx,o=rx
+      owner: root
+      group: root
+  - name: Copy galasabld module
+    get_url:
+      dest: /usr/local/bin/galasabld
+      url: https://galasadev-cicsk8s.hursley.ibm.com/prod/binary/bld/galasabld-linux-amd64
+      force: yes
+      mode: u=rwx,g=rx,o=rx
+      owner: root
+      group: root
